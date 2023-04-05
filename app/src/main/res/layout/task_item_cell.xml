@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/completeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="Checkbox"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/unchecked_24" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="@string/place_holder" />
+
+                <TextView
+                    android:id="@+id/dueTime"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_marginTop="50dp"
+                    android:text="place_holder"
+
+
+                    />
+            </RelativeLayout>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <ImageButton
+                android:id="@+id/taskCallContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="edit"
+                android:paddingRight="4dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:src="@drawable/baseline_edit_24" />
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="delete"
+                android:layout_marginTop="20dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:src="@drawable/baseline_delete_24"
+                android:layout_marginLeft="8dp"
+                android:layout_marginHorizontal="8dp"/>
+
+
+        </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
