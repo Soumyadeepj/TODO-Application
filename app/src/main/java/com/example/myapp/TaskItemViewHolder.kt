@@ -47,8 +47,8 @@ class TaskItemViewHolder(
 
 
 
-            if(taskItem.dueTime !=null)
-                binding.dueTime.text = timeFormat.format(taskItem.dueTime)
+            if(taskItem.dueTime()!=null)
+                binding.dueTime.text = timeFormat.format(taskItem.dueTime())
                 //binding.dueTime.text=String.format("%02d:%02d",taskItem.dueTime!!.hour,taskItem.dueTime!!.minute)
             else
                 binding.dueTime.text=""

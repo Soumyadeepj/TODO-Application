@@ -4,7 +4,6 @@ import android.app.TimePickerDialog
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +30,8 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(taskItem!!.name)
             binding.desc.text = editable.newEditable(taskItem!!.desc)
-            if(taskItem!!.dueTime!=null){
-                dueTime = taskItem!!.dueTime!!
+            if(taskItem!!.dueTime()!=null){
+                dueTime = taskItem!!.dueTime()!!
                 updateTimeButtonText()
             }
         }
@@ -77,19 +76,24 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
 
         return binding.root
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun saveAction()
     {
         val name =binding.name.text.toString()
         val desc =binding.desc.text.toString()
+        val dueTimeString = if(dueTime ==null) null else TaskItem.timeFormatter.format(dueTime)
         if(taskItem==null)
         {
-            val newTask = TaskItem(name,desc,dueTime,null)
+            val newTask = TaskItem(name,desc,dueTimeString,null)
             taskViewModel.addTaskItem(newTask)
 
         }
         else
-        {
-           taskViewModel.updateTaskItem(taskItem!!.id,name,desc,dueTime,null)
+        {  // changes for room database
+            taskItem!!.name =name
+            taskItem!!.desc =desc
+            taskItem!!.dueTimeString = dueTimeString
+            taskViewModel.updateTaskItem(taskItem!!)
         }
 
         binding.name.setText("")

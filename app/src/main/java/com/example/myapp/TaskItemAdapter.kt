@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi
 import com.example.myapp.databinding.TaskItemCellBinding
 
 class TaskItemAdapter(
-    private val taskItems:List<TaskItem>,
+    private val taskItems: List<TaskItem>?,
     private val clickListener: TaskItemClickListener // from TaskItemClickListener
     ): RecyclerView.Adapter<TaskItemViewHolder>()
  {
@@ -21,9 +21,9 @@ class TaskItemAdapter(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
-      holder.bindTaskItem(taskItems[position])
+      holder.bindTaskItem(taskItems!![position])
     }
-    override fun getItemCount(): Int =taskItems.size
+    override fun getItemCount(): Int = taskItems!!.size
 
 
 
